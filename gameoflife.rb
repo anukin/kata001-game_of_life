@@ -1,7 +1,6 @@
 class Cell
 	attr_accessor :state
-	@DEAD="dead"
-	@LIVE="live"
+	
 	def initialize(state="dead")
 		@state=state
 	end
@@ -41,11 +40,10 @@ class Emulate
 		count=0
 		(x-1..x+1).each do |p|
 			(y-1..y+1).each do |q|
-				if @board[p][q]=="live"
-					count=count+1
-				end
-	    count
+				count +=1 if @board[p][q]== "live"
+			end
+		end
+		count
 	end
-
 end
 
