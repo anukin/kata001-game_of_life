@@ -16,7 +16,6 @@ class Board
 		temp=[]
 		(1..n).each{temp << Cell.new}
 		(1..m).each{@board << temp}
-		self.get_livecells
 	end
 	def get_livecells
 		puts "Pls enter no of cells you wish to change \n"
@@ -60,6 +59,8 @@ class Emulate
 				end
 			end
 		end
+		p=Print.new(@board)
+		p.print
 	end
 	def live_change(cell,livecount)
 		if (0...2).include?livecount
@@ -74,6 +75,22 @@ class Emulate
 	end
 	def dead_change(cell,livecount)
 		cell.state ="live" if livecount ==3
+	end
+end
+
+class Print
+	def initialize(board)
+		@board=board
+	end
+	def print
+		m=@board.m
+		n=@board.n
+		(1..m).each do |x|
+			(1..n).each do |y|
+				puts "||#{@board[x][y].state}||"
+			end
+			puts "\n"
+		end
 	end
 end
 
