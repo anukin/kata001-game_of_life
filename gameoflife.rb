@@ -14,4 +14,11 @@ class Board
 		(1..m).each{temp << Cell.new}
 		(1..m).each{@board << temp}
 	end
+	def initialize(m,n)
+		@board=[]
+		temp=[]
+		(1..n).each{temp << Cell.new}
+		(1..m).each{@board << temp}
+	end
+
 end
