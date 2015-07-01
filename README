@@ -1,0 +1,13 @@
+this includes conways game of life
+the important classes present are 
+1.cell : for getting and setting states of the cell
+2.board : for a matrix like structure for initializing a matrix of cells with input from users on live cells
+3.emulate :for emulating game of life behaviour
+4.print : for printing the necessary matrix
+
+Improvements needed : cannot really capture the dynamic nature of game of life need some work around
+design principle violations need to be checked.
+ 
+Thats all folks
+
+ 
