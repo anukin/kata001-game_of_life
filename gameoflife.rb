@@ -9,14 +9,7 @@ end
 
 class Board
 	attr_reader :m ,:n
-	def initialize(m)
-		@board=[]
-		@m=m
-		@n=m
-		temp=[]
-		(1..m).each{temp << Cell.new}
-		(1..m).each{@board << temp}
-	end
+
 	def initialize(m,n)
 		@board=[]
 		@m=m
@@ -24,11 +17,12 @@ class Board
 		temp=[]
 		(1..n).each{temp << Cell.new}
 		(1..m).each{@board << temp}
+		self.get_livecells
 	end
 	def get_livecells
 		puts "Pls enter no of cells you wish to change \n"
-		n=gets.chomp.to_i
-		(1..n).each{self.change}
+		r=gets.chomp.to_i
+		(1..r).each{self.change}
 	end
 	def change
 		puts "Enter the co-ordinates for live cells \n"
@@ -37,10 +31,12 @@ class Board
 		@board[x][y].state="live"
 	end
 end
+b=Board.new(4,3)
 
-class emulate
+class Emulate
 	def initialize(board)
 		@board=board
 	end
+
 end
 
