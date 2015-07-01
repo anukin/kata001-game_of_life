@@ -8,14 +8,19 @@ class Cell
 end
 
 class Board
+	attr_reader :m ,:n
 	def initialize(m)
 		@board=[]
+		@m=m
+		@n=m
 		temp=[]
 		(1..m).each{temp << Cell.new}
 		(1..m).each{@board << temp}
 	end
 	def initialize(m,n)
 		@board=[]
+		@m=m
+		@n=n
 		temp=[]
 		(1..n).each{temp << Cell.new}
 		(1..m).each{@board << temp}
@@ -31,5 +36,11 @@ class Board
 		y=gets.chomp.to_i
 		@board[x][y].state="live"
 	end
-
 end
+
+class emulate
+	def initialize(board)
+		@board=board
+	end
+end
+
