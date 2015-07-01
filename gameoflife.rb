@@ -93,4 +93,7 @@ class Print
 		end
 	end
 end
+b=Board.new(4,3)
+e=Emulate.new(b)
+e.start_emulation
 
