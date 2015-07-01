@@ -31,11 +31,20 @@ class Board
 		@board[x][y].state="live"
 	end
 end
-b=Board.new(4,3)
+#b=Board.new(4,3)
 
 class Emulate
 	def initialize(board)
 		@board=board
+	end
+	def live_nieghbours(x,y)
+		count=0
+		(x-1..x+1).each do |p|
+			(y-1..y+1).each do |q|
+				if @board[p][q]=="live"
+					count=count+1
+				end
+	    count
 	end
 
 end
