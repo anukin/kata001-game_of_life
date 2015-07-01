@@ -1,3 +1,4 @@
+require 'pry'
 class Cell
 	attr_accessor :state
 
@@ -30,8 +31,9 @@ class Board
 	end
 end
 #b=Board.new(4,3)
-
+#working till here
 class Emulate
+	attr_reader :board
 	def initialize(board)
 		@board=board
 	end
@@ -39,7 +41,7 @@ class Emulate
 		count=0
 		(x-1..x+1).each do |p|
 			(y-1..y+1).each do |q|
-				count +=1 if @board[p][q]== "live"
+				count +=1 if @board[p][q].state== "live"
 			end
 		end
 		count
@@ -93,7 +95,8 @@ class Print
 		end
 	end
 end
-b=Board.new(4,3)
+b=Board.new(3,4)
+b.get_livecells
 e=Emulate.new(b)
 e.start_emulation
 
