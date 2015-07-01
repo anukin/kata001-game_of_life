@@ -51,12 +51,17 @@ class Emulate
 		(1..m).each do |p|
 			(1..n).each do |q|
 				livecells=live_nieghbours(p,q)
-				#self.change(@board[p][q],livecells)
+				curr_state=@board[p][q].state
+				curr_cell=@board[p][q]
+				if curr_state == "live"
+					self.live_change(curr_cell,livecells)
+				else
+					self.dead_change(curr_cell,livecells)
+				end
 			end
 		end
 	end
 	def live_change(cell,livecount)
-		deadcount=8-livecount
 		if (0...2).include?livecount
 			cell.state="dead"
 		end
@@ -66,6 +71,9 @@ class Emulate
 		if livecount>3
 			cell.state="dead"
 		end
+	end
+	def dead_change(cell,livecount)
+		cell.state ="live" if livecount ==3
 	end
 end
 
