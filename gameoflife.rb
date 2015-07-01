@@ -1,6 +1,6 @@
 class Cell
 	attr_accessor :state
-	
+
 	def initialize(state="dead")
 		@state=state
 	end
@@ -44,6 +44,28 @@ class Emulate
 			end
 		end
 		count
+	end
+	def start_emulation
+		m=@board.m
+		n=@board.n
+		(1..m).each do |p|
+			(1..n).each do |q|
+				livecells=live_nieghbours(p,q)
+				#self.change(@board[p][q],livecells)
+			end
+		end
+	end
+	def live_change(cell,livecount)
+		deadcount=8-livecount
+		if (0...2).include?livecount
+			cell.state="dead"
+		end
+		if (2...3).include?livecount
+			cell.state="live"
+		end
+		if livecount>3
+			cell.state="dead"
+		end
 	end
 end
 
